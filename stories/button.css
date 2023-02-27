@@ -1,30 +1,139 @@
 .storybook-button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
+    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
 }
-.storybook-button--primary {
-  color: white;
-  background-color: #1ea7fd;
+.loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #d9d9d9;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
 }
-.storybook-button--secondary {
-  color: #333;
-  background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* A Button */
+.storybook-button--A1 {
+    color: #ffffff;
+    background-color: #0740e4;
+}
+.storybook-button--A2 {
+    color: #ffffff;
+    background-color: #101010;
+}
+.storybook-button--A1:disabled,
+.storybook-button--A2:disabled {
+    pointer-events: none;
+    color: #ffffff;
+    background-color: #ededed;
+}
+.storybook-button--A1:active {
+    color: #ffffff;
+    background-color: #2c5bea;
+}
+.storybook-button--A2:active {
+    color: #ffffff;
+    background-color: #555555;
+}
+.A1-off,
+.A2-off {
+    color: #101010;
+    background: #f8f8f8;
+}
+/* B Button */
+.storybook-button--B1 {
+    color: #0740e4;
+    background-color: #ffffff;
+}
+.storybook-button--B2 {
+    color: #101010;
+    background-color: #ffffff;
+}
+.storybook-button--B1:disabled,
+.storybook-button--B2:disabled {
+    pointer-events: none;
+    color: #ffffff;
+    background-color: #ededed;
+}
+.storybook-button--B1:active {
+    color: #4f75ef;
+    background-color: #ededed;
+}
+.storybook-button--B2:active {
+    color: #555555;
+    background-color: #ededed;
+}
+
+/* C Button */
+.storybook-button--C1 {
+    color: #0740e4;
+    background-color: #fafbff;
+    border: #e5ebfc 1px solid;
+}
+.storybook-button--C2 {
+    color: #707070;
+    background-color: #ffffff;
+    border: #ededed 1px solid;
+}
+.storybook-button--C1:active {
+    color: #a7a7a7;
+    background-color: #ffffff;
+    border: #f8f8f8 1px solid;
+}
+.storybook-button--C2:active {
+    color: #7590f4;
+    background-color: #fafbff;
+    border: #f5f8ff 1px solid;
+}
+.C1-off,
+.C2-off {
+    color: #707070;
+    background: #ffffff;
+    border: 1px solid #ededed;
+}
+
+/* 버튼 사이즈 */
+.storybook-button--tiny {
+    font-size: 12px;
+    padding: 0px 8px;
+    height: 32px;
+}
+.storybook-button--xsmall {
+    font-size: 14px;
+    padding: 0px 8px;
+    height: 38px;
 }
 .storybook-button--small {
-  font-size: 12px;
-  padding: 10px 16px;
+    font-size: 14px;
+    padding: 0px 16px;
+    height: 46px;
 }
 .storybook-button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
+    font-size: 16px;
+    padding: 0px 16px;
+    height: 52px;
 }
 .storybook-button--large {
-  font-size: 16px;
-  padding: 12px 24px;
+    font-size: 16px;
+    padding: 0px 16px;
+    height: 56px;
+}
+.storybook-button--xlarge {
+    font-size: 18px;
+    padding: 0px 16px;
+    height: 60px;
 }

@@ -1,39 +1,40 @@
-import React from 'react';
-import './button.css';
+import React from "react";
+import "./button.css";
 
 interface ButtonProps {
-  disabled?: boolean;
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
+    mode?: string;
+    size?: "tiny" | "xsmall" | "small" | "medium" | "large" | "xlarge";
+    label: string;
+    backgroundColor?: string;
+    isDisabled?: boolean;
+    isLoadiong?: boolean;
+    isStatus?: boolean;
+    onClick?: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({ disabled = false, primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-
-  return (
-    <button type="button" disabled={disabled} className={['storybook-button', `storybook-button--${size}`, mode].join(' ')} style={{ backgroundColor }} {...props}>
-      {label}
-    </button>
-  );
+export const Button = ({
+    mode = "A1",
+    size = "medium",
+    label,
+    backgroundColor,
+    isDisabled = false,
+    isLoadiong = false,
+    isStatus = false,
+    ...props
+}: ButtonProps) => {
+    return (
+        <button
+            type="button"
+            disabled={isDisabled}
+            className={[
+                "storybook-button",
+                `storybook-button--${size} ${isStatus ? `${mode}-off` : ""}`,
+                `storybook-button--${mode}`,
+            ].join(" ")}
+            style={{ backgroundColor }}
+            {...props}
+        >
+            {isLoadiong ? <span className="loader"></span> : label}
+        </button>
+    );
 };
