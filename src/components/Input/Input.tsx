@@ -7,7 +7,7 @@ interface InputProps {
     value?: string;
     errorMessage?: string;
     isRequired?: boolean;
-    onChange?: (e: any) => void;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input = ({
