@@ -1,6 +1,5 @@
 import React from "react";
-import "./button.css";
-
+import { AiFillHome } from "react-icons/ai";
 interface ButtonProps {
     mode?: string;
     size?: "tiny" | "xsmall" | "small" | "medium" | "large" | "xlarge";
@@ -9,17 +8,19 @@ interface ButtonProps {
     isDisabled?: boolean;
     isLoadiong?: boolean;
     isStatus?: boolean;
+    isIcon?: boolean;
     onClick?: () => void;
 }
 
 export const Button = ({
-    mode = "A1",
+    mode = "soild-blue",
     size = "medium",
     label,
     backgroundColor,
     isDisabled = false,
     isLoadiong = false,
     isStatus = false,
+    isIcon = false,
     ...props
 }: ButtonProps) => {
     return (
@@ -27,13 +28,16 @@ export const Button = ({
             type="button"
             disabled={isDisabled}
             className={[
-                "storybook-button",
-                `storybook-button--${size} ${isStatus ? `${mode}-off` : ""}`,
-                `storybook-button--${mode}`,
+                "button",
+                `button--${mode}`,
+                `button--${size}`,
+                `${isStatus ? `${mode}-off` : ""}`,
+                `${isLoadiong ? "notWorkEvent" : ""}`,
             ].join(" ")}
             style={{ backgroundColor }}
             {...props}
         >
+            {isIcon ? <AiFillHome className="button--icon" /> : ""}
             {isLoadiong ? <span className="loader"></span> : label}
         </button>
     );

@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Button } from "./Button";
+import { Button } from "@/components/Button/Button";
 
 export default {
     title: "Example/Button",
@@ -13,42 +13,66 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const A1 = Template.bind({});
-A1.args = {
-    mode: "A1",
+export const SoildBlue = Template.bind({});
+SoildBlue.args = {
+    mode: "soild-blue",
     label: "버튼",
     size: "medium",
 };
 
-export const A2 = Template.bind({});
-A2.args = {
-    mode: "A2",
+export const SoildBlack = Template.bind({});
+SoildBlack.args = {
+    mode: "soild-black",
     label: "버튼",
     size: "medium",
 };
-export const B1 = Template.bind({});
-B1.args = {
-    mode: "B1",
+export const SoildWhiteBlue = Template.bind({});
+SoildWhiteBlue.args = {
+    mode: "soild-white-blue",
     label: "버튼",
     size: "medium",
 };
-export const B2 = Template.bind({});
-B2.args = {
-    mode: "B2",
+export const SoildWhiteBlack = Template.bind({});
+SoildWhiteBlack.args = {
+    mode: "soild-white-black",
     label: "버튼",
     size: "medium",
 };
-export const C1 = Template.bind({});
-C1.args = {
-    mode: "C1",
+export const OutlineBlue = Template.bind({});
+OutlineBlue.args = {
+    mode: "outline-blue",
     label: "버튼",
     size: "medium",
 };
-export const C2 = Template.bind({});
-C2.args = {
-    mode: "C2",
+export const OutlineWhite = Template.bind({});
+OutlineWhite.args = {
+    mode: "outline-white",
     label: "버튼",
     size: "medium",
+};
+export const WithDisabled = Template.bind({});
+WithDisabled.args = {
+    label: "버튼",
+    size: "medium",
+    isDisabled: true,
+};
+export const WithLoadiong = Template.bind({});
+WithLoadiong.args = {
+    label: "버튼",
+    size: "medium",
+    isLoadiong: true,
+};
+export const WithStatus = Template.bind({});
+WithStatus.args = {
+    label: "버튼",
+    size: "medium",
+    isStatus: true,
+};
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+    label: "버튼",
+    size: "medium",
+    isIcon: true,
 };
 /* 버튼 사이즈 */
 // export const Tiny = Template.bind({});
