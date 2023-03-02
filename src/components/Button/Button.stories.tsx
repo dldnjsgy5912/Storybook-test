@@ -13,43 +13,19 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const SoildBlue = Template.bind({});
-SoildBlue.args = {
-    mode: "soild-blue",
+export const Soild = Template.bind({});
+Soild.args = {
+    label: "버튼",
+    size: "medium",
+    soild: "blue",
+};
+
+export const Outline = Template.bind({});
+Outline.args = {
     label: "버튼",
     size: "medium",
 };
 
-export const SoildBlack = Template.bind({});
-SoildBlack.args = {
-    mode: "soild-black",
-    label: "버튼",
-    size: "medium",
-};
-export const SoildWhiteBlue = Template.bind({});
-SoildWhiteBlue.args = {
-    mode: "soild-white-blue",
-    label: "버튼",
-    size: "medium",
-};
-export const SoildWhiteBlack = Template.bind({});
-SoildWhiteBlack.args = {
-    mode: "soild-white-black",
-    label: "버튼",
-    size: "medium",
-};
-export const OutlineBlue = Template.bind({});
-OutlineBlue.args = {
-    mode: "outline-blue",
-    label: "버튼",
-    size: "medium",
-};
-export const OutlineWhite = Template.bind({});
-OutlineWhite.args = {
-    mode: "outline-white",
-    label: "버튼",
-    size: "medium",
-};
 export const WithDisabled = Template.bind({});
 WithDisabled.args = {
     label: "버튼",
@@ -74,39 +50,3 @@ WithIcon.args = {
     size: "medium",
     isIcon: true,
 };
-/* 버튼 사이즈 */
-// export const Tiny = Template.bind({});
-// Tiny.args = {
-//     size: "tiny",
-//     label: "버튼",
-// };
-
-// export const XSmall = Template.bind({});
-// XSmall.args = {
-//     size: "xsmall",
-//     label: "버튼",
-// };
-
-// export const Small = Template.bind({});
-// Small.args = {
-//     size: "small",
-//     label: "버튼",
-// };
-
-// export const Medium = Template.bind({});
-// Medium.args = {
-//     size: "medium",
-//     label: "버튼",
-// };
-
-// export const Large = Template.bind({});
-// Large.args = {
-//     size: "large",
-//     label: "버튼",
-// };
-
-// export const XLarge = Template.bind({});
-// XLarge.args = {
-//     size: "xlarge",
-//     label: "버튼",
-// };

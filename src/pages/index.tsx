@@ -19,17 +19,8 @@ export default function Home() {
 
     return (
         <>
-            <Button
-                label="회원가입"
-                mode="soild-blue"
-                onClick={() => console.log("테스트")}
-                size={"large"}
-            />
-            <Button label="버튼" mode="soild-black" />
-            <Button label="버튼" mode="soild-white-blue" />
-            <Button label="버튼" mode="soild-white-black" />
-            <Button label="버튼" mode="outline-blue" />
-            <Button label="버튼" mode="outline-white" />
+            <Button type="button" label="버튼" soild="blue" isLoadiong />
+            <Button type="button" label="버튼" size="xlarge" soild="black" />
 
             <form>
                 <Input
@@ -42,12 +33,6 @@ export default function Home() {
                     onChange={(e) => {
                         onChange(e, userId);
                     }}
-                />
-                <Button
-                    label="회원가입"
-                    mode="soild-blue"
-                    onClick={() => console.log(userId)}
-                    size={"large"}
                 />
             </form>
 
