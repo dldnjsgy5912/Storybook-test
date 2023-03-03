@@ -1,110 +1,27 @@
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import { SIZES, Variants } from "./ButtonStyle";
 
-const SIZES = {
-    tiny: css`
-        font-size: 12px;
-        padding: 0px 8px;
-        height: 32px;
-    `,
-    xsmall: css`
-        font-size: 14px;
-        padding: 0px 8px;
-        height: 38px;
-    `,
-    small: css`
-        font-size: 14px;
-        padding: 0px 16px;
-        height: 46px;
-    `,
-    medium: css`
-        font-size: 16px;
-        padding: 0px 16px;
-        height: 52px;
-    `,
-    large: css`
-        font-size: 16px;
-        padding: 0px 16px;
-        height: 56px;
-    `,
-    xlarge: css`
-        font-size: 18px;
-        padding: 0px 16px;
-        height: 60px;
-    `,
-};
-const SOILD = {
-    blue: css`
-        color: #ffffff;
-        background-color: #0740e4;
-        &:active {
-            color: #ffffff;
-            background-color: #2c5bea;
-        }
-        &:disabled {
-            pointer-events: none;
-            color: #ffffff;
-            background-color: #ededed;
-        }
-    `,
-    black: css`
-        color: #ffffff;
-        background-color: #101010;
-        &:active {
-            color: #ffffff;
-            background-color: #555555;
-        }
-        &:disabled {
-            pointer-events: none;
-            color: #ffffff;
-            background-color: #ededed;
-        }
-    `,
-};
-
-const OUTLINE = {
-    blue: css`
-        color: #0740e4;
-        background-color: #fafbff;
-        border: #e5ebfc 1px solid;
-        &:active {
-            color: #a7a7a7;
-            background-color: #ffffff;
-            border: #f8f8f8 1px solid;
-        }
-        &:disabled {
-            pointer-events: none;
-            color: #ffffff;
-            background-color: #ededed;
-        }
-    `,
-    black: css`
-        color: #ffffff;
-        background-color: #101010;
-        &:active {
-            color: #ffffff;
-            background-color: #555555;
-        }
-        &:disabled {
-            pointer-events: none;
-            color: #ffffff;
-            background-color: #ededed;
-        }
-    `,
-};
+interface ButtonStyleProps {
+    sizeStyle?: FlattenSimpleInterpolation;
+    variantsStyle?: FlattenSimpleInterpolation;
+    isLoadiong?: boolean;
+    isStatus?: boolean;
+    variant?: string;
+}
 
 interface ButtonProps {
     type?: "button" | "submit" | "reset";
-    soild?: "blue" | "black";
-    outline?: "blue";
     size?: "tiny" | "xsmall" | "small" | "medium" | "large" | "xlarge";
     label?: string;
-    color?: string;
-    background?: string;
-    sizeStyle?: FlattenSimpleInterpolation;
-    soildStyle?: FlattenSimpleInterpolation;
-    outlineStyle?: FlattenSimpleInterpolation;
+    variant:
+        | "soildBlue"
+        | "soildBlack"
+        | "soildWhiteBlue"
+        | "soildWhiteBlack"
+        | "outlineBlue"
+        | "outlinewhite";
     isDisabled?: boolean;
     isLoadiong?: boolean;
     isStatus?: boolean;
@@ -112,43 +29,43 @@ interface ButtonProps {
     onClick?: () => void;
 }
 
-const StyledButton = styled.button<ButtonProps>`
+const StyledButton = styled.button<ButtonStyleProps>`
     font-weight: 500;
     border: 0;
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
     line-height: 1;
-    &:active {
-        color: #ffffff;
-        background-color: #2c5bea;
-    }
-    &:disabled {
-        pointer-events: none;
-        color: #ffffff;
-        background-color: #ededed;
-    }
 
-    color: ${(props) => props.color || "#ffffff"};
-    background: ${(props) => props.background || "#0740e4"};
+    ${({ sizeStyle }) => sizeStyle}
 
-    border: ${(props) => props.color || "#ededed 1px solid"};
+    ${({ variantsStyle }) => variantsStyle}
 
-    ${(props) => props.sizeStyle}
-    ${(props) => props.soildStyle}
-    
-    ${(props) =>
-        props.isStatus &&
-        css`
-            pointer-events: none;
-            color: #101010;
-            background: #f8f8f8;
-        `}  
-        ${(props) =>
-        props.isLoadiong &&
+    ${({ isLoadiong }) =>
+        isLoadiong &&
         css`
             pointer-events: none;
         `}
+
+    ${({ isStatus, variant }) =>
+        isStatus &&
+        (variant === "soildBlue" ||
+            "soildBlack" ||
+            "soildWhiteBlue" ||
+            "soildWhiteBlack")
+            ? css`
+                  pointer-events: none;
+                  color: #101010;
+                  background: #ededed;
+              `
+            : isStatus && (variant === "outlineBlue" || "outlinewhite")
+            ? css`
+                  pointer-events: none;
+                  color: #707070;
+                  background: #ffffff;
+                  border: 1px solid #ededed;
+              `
+            : null}
 `;
 
 const Loader = styled.span`
@@ -171,10 +88,9 @@ const Loader = styled.span`
 `;
 export const Button = ({
     type = "button",
+    label = "버튼",
     size = "medium",
-    soild = "blue",
-    outline = "blue",
-    label,
+    variant = "soildBlue",
     isDisabled = false,
     isLoadiong = false,
     isStatus = false,
@@ -182,20 +98,24 @@ export const Button = ({
     ...props
 }: ButtonProps) => {
     const sizeStyle = SIZES[size];
-    const soildStyle = SOILD[soild];
-    const outlineStyle = OUTLINE[outline];
+    const variantsStyle = Variants[variant];
+
     return (
         <StyledButton
             type={type}
             sizeStyle={sizeStyle}
+            variantsStyle={variantsStyle}
+            variant={variant}
             disabled={isDisabled}
-            isStatus={isStatus}
             isLoadiong={isLoadiong}
-            soildStyle={soildStyle}
-            outlineStyle={outlineStyle}
+            isStatus={isStatus}
             {...props}
         >
-            {isIcon ? <AiFillHome className="button--icon" /> : ""}
+            {isIcon && !isLoadiong ? (
+                <AiFillHome className="button--icon" />
+            ) : (
+                ""
+            )}
             {isLoadiong ? <Loader /> : label}
         </StyledButton>
     );

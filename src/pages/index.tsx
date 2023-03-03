@@ -19,8 +19,13 @@ export default function Home() {
 
     return (
         <>
-            <Button type="button" label="버튼" soild="blue" isLoadiong />
-            <Button type="button" label="버튼" size="xlarge" soild="black" />
+            <Button type="button" label="버튼" variant="soildBlue" isLoadiong />
+            <Button
+                type="button"
+                label="버튼"
+                size="xlarge"
+                variant="soildBlue"
+            />
 
             <form>
                 <Input
