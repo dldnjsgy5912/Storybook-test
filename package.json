@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic --project-token=080ee95a30fe"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^13.2.3",
@@ -38,8 +39,11 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/styled-components": "^5.1.26",
     "babel-loader": "^8.3.0",
+    "chromatic": "^6.17.1",
     "sb": "^6.5.16",
     "storybook-addon-next": "^1.7.2",
     "webpack": "^5.75.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "start-storybook@0.1.0"
 }
