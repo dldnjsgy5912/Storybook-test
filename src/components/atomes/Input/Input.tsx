@@ -13,7 +13,7 @@ interface InputProps {
 export const Input = ({
     label = "라벨",
     type = "text",
-    placeholder = "값을 입력해 주세요.",
+    placeholder,
     value,
     errorMessage = "",
     isRequired = false,
