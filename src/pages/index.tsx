@@ -8,7 +8,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
     const userId = useRef("");
-    const [inputValue, setInputValue] = useState("");
 
     const onChange = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -17,6 +16,7 @@ export default function Home() {
         const value = e.target.value;
         type.current = value;
     };
+    console.log("userId", userId);
 
     return (
         <>
@@ -26,15 +26,16 @@ export default function Home() {
                 label="버튼"
                 size="xlarge"
                 variant="soildBlue"
+                isLoadiong
             />
 
             <form>
                 <Input
                     label="라벨 테스트"
                     type="text"
-                    errorMessage={
-                        inputValue.length >= 30 ? "값을 입력해 주세요." : ""
-                    }
+                    // errorMessage={
+                    //     inputValue.length >= 30 ? "값을 입력해 주세요." : ""
+                    // }
                     isRequired
                     onChange={(e) => {
                         onChange(e, userId);
@@ -42,7 +43,7 @@ export default function Home() {
                 />
             </form>
 
-            {inputValue}
+            {/* {userId} */}
         </>
     );
 }

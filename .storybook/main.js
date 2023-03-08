@@ -4,10 +4,18 @@ module.exports = {
         "../src/**/**/*.stories.@(js|jsx|ts|tsx)",
     ],
     addons: [
-        "@storybook/addon-links",
-        "@storybook/addon-essentials",
-        "@storybook/addon-interactions",
-        "storybook-addon-next",
+        { name: "@storybook/addon-links" },
+        { name: "@storybook/addon-essentials" },
+        { name: "@storybook/addon-interactions" },
+        { name: "storybook-addon-next" },
+        {
+            name: "@storybook/addon-storysource",
+            options: {
+                loaderOptions: {
+                    injectStoryParameters: false,
+                },
+            },
+        },
     ],
     framework: "@storybook/react",
     core: {
