@@ -7,16 +7,8 @@ import { TextButton } from "@/components/atomes/Button/TextButton";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-    const userId = useRef("");
-
-    const onChange = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        type: React.MutableRefObject<string>
-    ) => {
-        const value = e.target.value;
-        type.current = value;
-    };
-    console.log("userId", userId);
+    const [inputValue, setInputValue] = useState("");
+    const errorMessage = inputValue.length >= 30 ? "값을 입력해 주세요." : "";
 
     return (
         <>
@@ -33,17 +25,11 @@ export default function Home() {
                 <Input
                     label="라벨 테스트"
                     type="text"
-                    // errorMessage={
-                    //     inputValue.length >= 30 ? "값을 입력해 주세요." : ""
-                    // }
+                    errorMessage={errorMessage}
                     isRequired
-                    onChange={(e) => {
-                        onChange(e, userId);
-                    }}
+                    onChange={(e) => setInputValue(e.target.value)}
                 />
             </form>
-
-            {/* {userId} */}
         </>
     );
 }
