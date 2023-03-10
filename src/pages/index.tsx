@@ -12,7 +12,12 @@ export default function Home() {
 
     return (
         <>
-            <TextButton type="button" label="버튼" />
+            <Button
+                type="button"
+                label="버튼"
+                size="tiny"
+                variant="soildBlack"
+            />
             <Button
                 type="button"
                 label="버튼"

@@ -1,15 +1,20 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
 import { Button } from "@/components/atomes/Button/Button";
 import { expect } from "@storybook/jest";
-import { waitFor, userEvent, within } from "@storybook/testing-library";
+import { userEvent, within } from "@storybook/testing-library";
 
 export default {
     title: "DESIGN STSTEM/Button/A. Container Button",
     component: Button,
     argTypes: {
         backgroundColor: { control: "color" },
+    },
+    parameters: {
+        design: {
+            type: "figma",
+            url: "https://www.figma.com/file/CIsiGfhWDvuu9FikpT62Rk/components_1.0?node-id=5%3A2&t=tVrx5haDUiHQu1ms-1",
+        },
     },
 } as ComponentMeta<typeof Button>;
 

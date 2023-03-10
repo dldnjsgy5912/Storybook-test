@@ -6,6 +6,12 @@ import { Input } from "@/components/atomes/Input/Input";
 export default {
     title: "DESIGN STSTEM/Input/A. Inputs",
     component: Input,
+    parameters: {
+        design: {
+            type: "figma",
+            url: "https://www.figma.com/file/CIsiGfhWDvuu9FikpT62Rk/components_1.0?node-id=8%3A43&t=tVrx5haDUiHQu1ms-1",
+        },
+    },
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;

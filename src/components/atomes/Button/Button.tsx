@@ -1,12 +1,13 @@
+import theme from "@/components/common/theme";
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
-import { Loader, SIZES, StyledButton, Variants } from "./ButtonStyle";
+import { Loader, StyledButton, Variants } from "./ButtonStyle";
 
 interface ButtonProps {
     type?: "button" | "submit" | "reset";
     size?: "tiny" | "xsmall" | "small" | "medium" | "large" | "xlarge";
     label?: string;
-    variant:
+    variant?:
         | "soildBlue"
         | "soildBlack"
         | "soildWhiteBlue"
@@ -31,13 +32,13 @@ export const Button = ({
     isIcon = false,
     ...props
 }: ButtonProps) => {
-    const sizeStyle = SIZES[size];
     const variantsStyle = Variants[variant];
 
     return (
         <StyledButton
+            theme={theme}
             type={type}
-            sizeStyle={sizeStyle}
+            size={size}
             variantsStyle={variantsStyle}
             variant={variant}
             disabled={isDisabled}
@@ -49,7 +50,7 @@ export const Button = ({
                 <AiFillHome className="button--icon" />
             ) : null}
 
-            {isLoadiong ? <Loader /> : label}
+            {isLoadiong ? <Loader aria-label={"로딩아이콘"} /> : label}
         </StyledButton>
     );
 };

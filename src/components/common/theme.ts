@@ -1,6 +1,39 @@
-import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import { css } from "styled-components";
 
-export const Variants = {
+const Sizes = {
+    tiny: css`
+        font-size: 12px;
+        padding: 0px 8px;
+        height: 32px;
+    `,
+    xsmall: css`
+        font-size: 14px;
+        padding: 0px 8px;
+        height: 38px;
+    `,
+    small: css`
+        font-size: 14px;
+        padding: 0px 16px;
+        height: 46px;
+    `,
+    medium: css`
+        font-size: 16px;
+        padding: 0px 16px;
+        height: 52px;
+    `,
+    large: css`
+        font-size: 16px;
+        padding: 0px 16px;
+        height: 56px;
+    `,
+    xlarge: css`
+        font-size: 18px;
+        padding: 0px 16px;
+        height: 60px;
+    `,
+};
+
+const Variants = {
     soildBlue: css`
         color: #ffffff;
         background-color: #0740e4;
@@ -85,70 +118,9 @@ export const Variants = {
     `,
 };
 
-// Loader
-export const Loader = styled.span`
-    width: 16px;
-    height: 16px;
-    border: 2px solid #d9d9d9;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-    @keyframes rotation {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-`;
+const Color = {
+    primaryColor: {},
+};
+const theme = { Sizes, Variants };
 
-// StyledButton
-interface ButtonStyleProps {
-    variantsStyle?: FlattenSimpleInterpolation;
-    isLoadiong?: boolean;
-    isStatus?: boolean;
-    variant?: string;
-    size: string;
-}
-
-export const StyledButton = styled.button<ButtonStyleProps>`
-    font-weight: 500;
-    border: 0;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 1;
-
-    ${({ theme, size }) => theme.Sizes[size]}
-
-    ${({ variantsStyle }) => variantsStyle}
-
-    ${({ isLoadiong }) =>
-        isLoadiong &&
-        css`
-            pointer-events: none;
-        `}
-
-    ${({ isStatus, variant }) =>
-        isStatus &&
-        (variant === "soildBlue" ||
-            "soildBlack" ||
-            "soildWhiteBlue" ||
-            "soildWhiteBlack")
-            ? css`
-                  pointer-events: none;
-                  color: #101010;
-                  background: #ededed;
-              `
-            : isStatus && (variant === "outlineBlue" || "outlinewhite")
-            ? css`
-                  pointer-events: none;
-                  color: #707070;
-                  background: #ffffff;
-                  border: 1px solid #ededed;
-              `
-            : null}
-`;
+export default theme;

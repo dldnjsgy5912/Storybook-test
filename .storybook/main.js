@@ -4,14 +4,17 @@ module.exports = {
         "../src/**/**/*.stories.@(js|jsx|ts|tsx)",
     ],
     addons: [
-        { name: "@storybook/addon-links" },
-        { name: "@storybook/addon-essentials" },
-        { name: "@storybook/addon-interactions" },
-        { name: "storybook-addon-next" },
+        "@storybook/addon-links",
+        "@storybook/addon-essentials",
+        "@storybook/addon-interactions",
+        "storybook-addon-next",
+        "storybook-addon-designs",
+        "@storybook/addon-storysource",
+        "@storybook/addon-a11y",
         {
-            name: "@storybook/addon-storysource",
+            name: "@storybook/addon-docs",
             options: {
-                loaderOptions: {
+                sourceLoaderOptions: {
                     injectStoryParameters: false,
                 },
             },
