@@ -119,8 +119,166 @@ const Variants = {
 };
 
 const Color = {
-    primaryColor: {},
+    primaryColor: {
+        primary100: css`
+            color: #0740e4;
+        `,
+        primary90: css`
+            color: #2c5bea;
+        `,
+        primary80: css`
+            color: #4f75ef;
+        `,
+        primary70: css`
+            color: #7590f4;
+        `,
+        primary60: css`
+            color: #9ab0f6;
+        `,
+        primary50: css`
+            color: #b4c3f8;
+        `,
+        primary40: css`
+            color: #cdd7fa;
+        `,
+        primary30: css`
+            color: #e5ebfc;
+        `,
+        primary20: css`
+            color: #f5f8ff;
+        `,
+        primary10: css`
+            color: #fafbff;
+        `,
+    },
+    secondaryColor: {
+        secondary100: css`
+            color: #ff673e;
+        `,
+        secondary90: css`
+            color: #ff7b57;
+        `,
+        secondary80: css`
+            color: #ff9173;
+        `,
+        secondary70: css`
+            color: #ffa188;
+        `,
+        secondary60: css`
+            color: #ffa993;
+        `,
+        secondary50: css`
+            color: #ffbcaa;
+        `,
+        secondary40: css`
+            color: #ffcdc1;
+        `,
+        secondary30: css`
+            color: #ffe3dd;
+        `,
+        secondary20: css`
+            color: #fff3f0;
+        `,
+        secondary10: css`
+            color: #fefbfb;
+        `,
+    },
+    greenColor: {
+        green100: css`
+            color: #83b100;
+        `,
+        green90: css`
+            color: #9ec236;
+        `,
+        green80: css`
+            color: #aaca4e;
+        `,
+        green70: css`
+            color: #b8d36c;
+        `,
+        green60: css`
+            color: #c3da82;
+        `,
+        green50: css`
+            color: #cee099;
+        `,
+        green40: css`
+            color: #d9e8b1;
+        `,
+        green30: css`
+            color: #e4efc8;
+        `,
+        green20: css`
+            color: #f4f9e9;
+        `,
+        green10: css`
+            color: #fbfdf7;
+        `,
+    },
+    grayColor: {
+        gray100: css`
+            color: #101010;
+        `,
+        gray90: css`
+            color: #3c3c3c;
+        `,
+        gray80: css`
+            color: #555555;
+        `,
+        gray70: css`
+            color: #707070;
+        `,
+        gray60: css`
+            color: #939393;
+        `,
+        gray50: css`
+            color: #a7a7a7;
+        `,
+        gray40: css`
+            color: #c2c2c2;
+        `,
+        gray30: css`
+            color: #d9d9d9;
+        `,
+        gray20: css`
+            color: #ededed;
+        `,
+        gray10: css`
+            color: #f8f8f8;
+        `,
+    },
 };
-const theme = { Sizes, Variants };
+const Font = {
+    heading: {
+        depth1: css`
+            font-size: 32px;
+            line-height: 48px;
+            letter-spacing: 0%;
+        `,
+        depth2: css`
+            font-size: 28px;
+            line-height: 42px;
+            letter-spacing: 0%;
+        `,
+    },
+    title: css`
+        font-size: 24px;
+        line-height: 36px;
+        letter-spacing: 0%;
+    `,
+    subTitle: {
+        depth1: css`
+            font-size: 20px;
+            line-height: 30px;
+            letter-spacing: 0%;
+        `,
+        depth2: css`
+            font-size: 18px;
+            line-height: 26px;
+            letter-spacing: 0%;
+        `,
+    },
+};
+const theme = { Sizes, Variants, Color, Font };
 
 export default theme;

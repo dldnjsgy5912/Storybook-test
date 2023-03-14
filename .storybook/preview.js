@@ -7,5 +7,22 @@ export const parameters = {
             color: /(background|color)$/i,
             date: /Date$/,
         },
+        exclude: ["role"],
+    },
+    html: {
+        prettier: {
+            tabWidth: 4,
+            useTabs: false,
+        },
+    },
+    a11y: {
+        config: {
+            rules: [
+                {
+                    id: "color-contrast",
+                    enabled: false,
+                },
+            ],
+        },
     },
 };

@@ -2,6 +2,7 @@ import theme from "@/components/common/theme";
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
 import { Loader, StyledButton, Variants } from "./ButtonStyle";
+import { AriaAttributes, AriaRole } from "react";
 
 interface ButtonProps {
     type?: "button" | "submit" | "reset";

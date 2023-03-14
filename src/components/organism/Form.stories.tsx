@@ -15,7 +15,7 @@ export default {
     },
 } as ComponentMeta<typeof Form>;
 
-const Template: ComponentStory<typeof Form> = (args) => <Form {...args} />;
+const Template: ComponentStory<typeof Form> = (args) => <Form />;
 
 export const Default = Template.bind({});
 Default.args = {};

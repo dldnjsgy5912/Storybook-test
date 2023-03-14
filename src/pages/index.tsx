@@ -3,6 +3,7 @@ import { Button } from "@/components/atomes/Button/Button";
 import { Input } from "@/components/atomes/Input/Input";
 import { useRef, useState } from "react";
 import { TextButton } from "@/components/atomes/Button/TextButton";
+import { Form } from "@/components/organism/Form";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,29 +13,9 @@ export default function Home() {
 
     return (
         <>
-            <Button
-                type="button"
-                label="버튼"
-                size="tiny"
-                variant="soildBlack"
-            />
-            <Button
-                type="button"
-                label="버튼"
-                size="xlarge"
-                variant="soildBlue"
-                isLoadiong
-            />
-
-            <form>
-                <Input
-                    label="라벨 테스트"
-                    type="text"
-                    errorMessage={errorMessage}
-                    isRequired
-                    onChange={(e) => setInputValue(e.target.value)}
-                />
-            </form>
+            <Form>
+                <Input type="email" label="이메일" isRequired />
+            </Form>
         </>
     );
 }
