@@ -1,46 +1,104 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import * as React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { StyledAnswerHead, StyledAnswerList } from "./styled";
+import { Box, Drawer } from "@mui/material";
+import Report from "@/components/atomes/ask/Report/index";
+import { TextButton } from "@/components/atomes/Button/TextButton";
 
-function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
-  return { name, calories, fat, carbs, protein };
+interface answersProp {
+    title: string;
+    context: string;
+    time: number;
 }
+type Anchor = "bottom";
 
-const rows = [createData('Frozen yoghurt', 159, 6.0, 24, 4.0)];
+export default function AnswerList({ answers }: { answers: answersProp[] }) {
+    const [state, setState] = React.useState({
+        bottom: false,
+    });
 
-export default function AnswerList() {
-  return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 350 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="center">전문가 의견 도움 신청 클릭</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{
-                '&:last-child td, &:last-child th': {
-                  border: 0,
-                },
-              }}
+    const toggleDrawer =
+        (anchor: Anchor, open: boolean) =>
+        (event: React.KeyboardEvent | React.MouseEvent) => {
+            if (
+                event.type === "keydown" &&
+                ((event as React.KeyboardEvent).key === "Tab" ||
+                    (event as React.KeyboardEvent).key === "Shift")
+            ) {
+                return;
+            }
+
+            setState({ ...state, [anchor]: open });
+        };
+
+    const page = () => (
+        <Box
+            sx={{
+                width: "auto",
+                height: "100vh",
+            }}
+            role="presentation"
+        >
+            <Report toggleDrawer={toggleDrawer} />
+        </Box>
+    );
+
+    return (
+        <>
+            <Drawer
+                anchor={"bottom"}
+                open={state["bottom"]}
+                onClose={toggleDrawer("bottom", false)}
             >
-              <TableCell component="th" scope="row">
-                <div>
-                  <h1>{row.name}</h1> {row.calories}
-                </div>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
+                {page()}
+            </Drawer>
+
+            <TableContainer component={Paper} sx={{ marginBottom: "50px" }}>
+                <Table sx={{ minWidth: 300 }} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="center">
+                                <StyledAnswerHead>
+                                    <TextButton
+                                        label="전문가 의견 도움 신청 클릭"
+                                        color="gray"
+                                        fontWeight={600}
+                                        size="xlarge"
+                                        onClick={toggleDrawer("bottom", true)}
+                                    />
+                                </StyledAnswerHead>
+                            </TableCell>
+                        </TableRow>
+                    </TableHead>
+
+                    <TableBody>
+                        {answers.map((row, i) => (
+                            <TableRow
+                                key={i}
+                                sx={{
+                                    "&:last-child td, &:last-child th": {
+                                        border: 0,
+                                    },
+                                }}
+                            >
+                                <TableCell component="th" scope="row">
+                                    <StyledAnswerList>
+                                        <h1>{row.title}</h1>
+                                        <p>{row.context}</p>
+                                        <span>{row.time}시간</span>
+                                    </StyledAnswerList>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </>
+    );
 }

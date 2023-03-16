@@ -20,7 +20,7 @@ interface TextButtonProps {
     size?: "tiny" | "xsmall" | "small" | "medium" | "large" | "xlarge";
     isDisabled?: boolean;
     isIcon?: boolean;
-    onClick?: () => void;
+    onClick?: any;
 }
 
 const StyledTextButton = styled.button<TextButtonStyleProps>`

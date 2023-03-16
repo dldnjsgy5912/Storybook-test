@@ -253,29 +253,44 @@ const Font = {
         depth1: css`
             font-size: 32px;
             line-height: 48px;
-            letter-spacing: 0%;
         `,
         depth2: css`
             font-size: 28px;
             line-height: 42px;
-            letter-spacing: 0%;
         `,
     },
     title: css`
         font-size: 24px;
         line-height: 36px;
-        letter-spacing: 0%;
     `,
     subTitle: {
         depth1: css`
             font-size: 20px;
             line-height: 30px;
-            letter-spacing: 0%;
         `,
         depth2: css`
             font-size: 18px;
             line-height: 26px;
-            letter-spacing: 0%;
+        `,
+    },
+    body: {
+        depth1: css`
+            font-size: 16px;
+            line-height: 24px;
+        `,
+        depth2: css`
+            font-size: 14px;
+            line-height: 22px;
+        `,
+    },
+    caption: {
+        depth1: css`
+            font-size: 12px;
+            line-height: 18px;
+        `,
+        depth2: css`
+            font-size: 10px;
+            line-height: 16px;
         `,
     },
 };

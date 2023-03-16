@@ -19,7 +19,7 @@ interface ButtonProps {
     isLoadiong?: boolean;
     isStatus?: boolean;
     isIcon?: boolean;
-    onClick?: () => void;
+    onClick?: any;
 }
 
 export const Button = ({
