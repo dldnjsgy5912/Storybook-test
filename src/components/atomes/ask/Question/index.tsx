@@ -18,13 +18,14 @@ const imageUrls = [
 const blurDataURL =
     "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==";
 
-export default function Question({ answersLength }: { answersLength: number }) {
+export default function Question() {
     const count = useSelector((state: RootState) => state.counter.value);
+    const answer = useSelector((state: RootState) => state.answer);
     const dispatch = useDispatch();
 
     return (
         <StyledQuestion>
-            <h1>{`<중고차비교문의>`}</h1>
+            <h1 style={{ fontWeight: 700 }}>{`<중고차비교문의>`}</h1>
             <p>3시리즈 G20 LG 전과 후 모임중 고민인데 한번 봐주세요</p>
             <Grid container spacing={1}>
                 {imageUrls.map((url, i) => {
@@ -50,13 +51,10 @@ export default function Question({ answersLength }: { answersLength: number }) {
                 })}
             </Grid>
             <StyledIcon>
-                <ThumbUpAltIcon
-                    sx={{ cursor: "pointer" }}
-                    onClick={() => dispatch(increment())}
-                />
+                <ThumbUpAltIcon sx={{ cursor: "pointer" }} onClick={() => dispatch(increment())} />
                 <span>{count}</span>
                 <MessageIcon sx={{ cursor: "pointer" }} />
-                <span>{answersLength}</span>
+                <span>{answer.length}</span>
             </StyledIcon>
         </StyledQuestion>
     );

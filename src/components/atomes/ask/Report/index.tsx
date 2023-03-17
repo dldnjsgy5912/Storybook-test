@@ -8,10 +8,7 @@ import { StyledReport } from "./styled";
 export default function Report({
     toggleDrawer,
 }: {
-    toggleDrawer: (
-        anchor: "bottom",
-        open: boolean
-    ) => (event: React.KeyboardEvent | React.MouseEvent) => void;
+    toggleDrawer: (anchor: "bottom", open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void;
 }) {
     const [values, setValues] = useState({
         email: "",
@@ -40,21 +37,11 @@ export default function Report({
                         justifyContent: "end",
                     }}
                 >
-                    <Button
-                        label="닫기"
-                        variant="outlineBlue"
-                        size="xsmall"
-                        onClick={toggleDrawer("bottom", false)}
-                    />
+                    <Button label="닫기" variant="outlineBlue" size="xsmall" onClick={toggleDrawer("bottom", false)} />
                 </div>
 
                 <form onSubmit={handleSubmit}>
-                    <Input
-                        label="차량정보의견"
-                        name="email"
-                        value={values.email}
-                        onChange={handleChange}
-                    />
+                    <Input label="차량정보의견" name="email" value={values.email} onChange={handleChange} />
                     <Input
                         label="성능기록부에 대한 의견"
                         name="password"
@@ -68,13 +55,7 @@ export default function Report({
                     <Input label="가격 및 종합 의견" />
                     <Input label="예산으로 다른 모델 추천 의견" />
 
-                    <Button
-                        type="submit"
-                        label="저장"
-                        variant="outlineBlue"
-                        size="xsmall"
-                        onClick={() => {}}
-                    />
+                    <Button type="submit" label="저장" variant="outlineBlue" size="xsmall" onClick={() => {}} />
                 </form>
             </StyledReport>
         </Container>

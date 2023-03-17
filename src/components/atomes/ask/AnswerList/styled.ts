@@ -10,6 +10,8 @@ export const StyledAnswerHead = styled.div`
 `;
 
 export const StyledAnswerList = styled.div`
+    button {
+    }
     h1 {
         ${({ theme }) => theme.Font["body"]["depth1"]}
         margin-bottom: 20px;

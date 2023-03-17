@@ -10,32 +10,53 @@ import { StyledAnswerHead, StyledAnswerList } from "./styled";
 import { Box, Drawer } from "@mui/material";
 import Report from "@/components/atomes/ask/Report/index";
 import { TextButton } from "@/components/atomes/Button/TextButton";
+import { Input } from "../../Input/Input";
+import { Button } from "../../Button/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { add, remove } from "@/store/answerReducer";
+import { useState } from "react";
 
-interface answersProp {
-    title: string;
-    context: string;
-    time: number;
-}
 type Anchor = "bottom";
 
-export default function AnswerList({ answers }: { answers: answersProp[] }) {
-    const [state, setState] = React.useState({
+export default function AnswerList() {
+    const [state, setState] = useState({
         bottom: false,
     });
+    const answers = useSelector((state: RootState) => state.answer);
+    const dispatch = useDispatch();
 
-    const toggleDrawer =
-        (anchor: Anchor, open: boolean) =>
-        (event: React.KeyboardEvent | React.MouseEvent) => {
-            if (
-                event.type === "keydown" &&
-                ((event as React.KeyboardEvent).key === "Tab" ||
-                    (event as React.KeyboardEvent).key === "Shift")
-            ) {
-                return;
-            }
+    const [values, setValues] = useState({
+        title: "",
+        context: "",
+    });
 
-            setState({ ...state, [anchor]: open });
-        };
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        dispatch(add(values));
+        setValues({
+            ...values,
+            title: "",
+            context: "",
+        });
+    };
+
+    const toggleDrawer = (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+        if (
+            event.type === "keydown" &&
+            ((event as React.KeyboardEvent).key === "Tab" || (event as React.KeyboardEvent).key === "Shift")
+        ) {
+            return;
+        }
+
+        setState({ ...state, [anchor]: open });
+    };
 
     const page = () => (
         <Box
@@ -51,11 +72,7 @@ export default function AnswerList({ answers }: { answers: answersProp[] }) {
 
     return (
         <>
-            <Drawer
-                anchor={"bottom"}
-                open={state["bottom"]}
-                onClose={toggleDrawer("bottom", false)}
-            >
+            <Drawer anchor={"bottom"} open={state["bottom"]} onClose={toggleDrawer("bottom", false)}>
                 {page()}
             </Drawer>
 
@@ -78,9 +95,9 @@ export default function AnswerList({ answers }: { answers: answersProp[] }) {
                     </TableHead>
 
                     <TableBody>
-                        {answers.map((row, i) => (
+                        {answers.map((answer, i) => (
                             <TableRow
-                                key={i}
+                                key={answer.id}
                                 sx={{
                                     "&:last-child td, &:last-child th": {
                                         border: 0,
@@ -89,13 +106,65 @@ export default function AnswerList({ answers }: { answers: answersProp[] }) {
                             >
                                 <TableCell component="th" scope="row">
                                     <StyledAnswerList>
-                                        <h1>{row.title}</h1>
-                                        <p>{row.context}</p>
-                                        <span>{row.time}시간</span>
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                justifyContent: "end",
+                                            }}
+                                        >
+                                            <Button
+                                                label="삭제"
+                                                variant="soildBlack"
+                                                size="tiny"
+                                                onClick={() => {
+                                                    dispatch(remove(answers[i].id));
+                                                }}
+                                            />
+                                        </div>
+                                        <h1>{answer.title}</h1>
+                                        <p>{answer.context}</p>
+                                        <span>{answer.time}시간</span>
                                     </StyledAnswerList>
                                 </TableCell>
                             </TableRow>
                         ))}
+                        <TableRow
+                            sx={{
+                                "&:last-child td, &:last-child th": {
+                                    border: 0,
+                                },
+                            }}
+                        >
+                            <TableCell component="th" scope="row">
+                                <Input
+                                    label="제목"
+                                    name="title"
+                                    value={values.title}
+                                    onChange={handleChange}
+                                    isRequired
+                                />
+                                <Input
+                                    label="내용"
+                                    name="context"
+                                    value={values.context}
+                                    onChange={handleChange}
+                                    isRequired
+                                />
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        justifyContent: "end",
+                                    }}
+                                >
+                                    <Button
+                                        onClick={handleSubmit}
+                                        label="등록"
+                                        size="xsmall"
+                                        isStatus={!values.title || !values.context}
+                                    />
+                                </div>
+                            </TableCell>
+                        </TableRow>
                     </TableBody>
                 </Table>
             </TableContainer>

@@ -25,16 +25,8 @@ export const Input = ({
             <label>
                 {label}
                 {isRequired ? <span className="required">*</span> : ""}
-                <input
-                    type={type}
-                    placeholder={placeholder}
-                    value={value}
-                    className={["input"].join(" ")}
-                    {...props}
-                />
-                {errorMessage.length ? (
-                    <div className="error-message">{errorMessage}</div>
-                ) : null}
+                <input type={type} placeholder={placeholder} value={value} className={["input"].join(" ")} {...props} />
+                {errorMessage.length ? <div className="error-message">{errorMessage}</div> : null}
             </label>
         </div>
     );
