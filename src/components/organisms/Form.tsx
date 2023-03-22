@@ -1,4 +1,3 @@
-import theme from "@/components/common/theme";
 import React, { useRef, useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { Button } from "../atomes/Button/Button";
@@ -10,10 +9,7 @@ export const Form = ({ children }: FormContextProps) => {
     const userId = useRef("");
     const password = useRef("");
 
-    const onChange = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        type: React.MutableRefObject<string>
-    ) => {
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>, type: React.MutableRefObject<string>) => {
         const value = e.target.value;
         type.current = value;
     };

@@ -1,15 +1,20 @@
 import AnswerList from "@/components/atomes/ask/AnswerList";
-import React from "react";
-import Header from "@/components/atomes/ask/Header";
+import React, { ReactElement } from "react";
 import Question from "@/components/atomes/ask/Question";
 import { Container } from "@mui/material";
+import AskHeaderLayout from "@/components/layout/AskHeaderLayout";
 
 export default function Ask() {
     return (
-        <Container fixed maxWidth="lg">
-            <Header />
+        <>
+            {/* <Container fixed maxWidth="lg"> */}
             <Question />
             <AnswerList />
-        </Container>
+            {/* </Container> */}
+        </>
     );
 }
+
+Ask.getLayout = function getLayout(page: ReactElement) {
+    return <AskHeaderLayout>{page}</AskHeaderLayout>;
+};

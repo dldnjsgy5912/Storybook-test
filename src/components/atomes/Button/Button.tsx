@@ -1,4 +1,3 @@
-import theme from "@/components/common/theme";
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
 import { Loader, StyledButton, Variants } from "./ButtonStyle";
@@ -8,13 +7,7 @@ interface ButtonProps {
     type?: "button" | "submit" | "reset";
     size?: "tiny" | "xsmall" | "small" | "medium" | "large" | "xlarge";
     label?: string;
-    variant?:
-        | "soildBlue"
-        | "soildBlack"
-        | "soildWhiteBlue"
-        | "soildWhiteBlack"
-        | "outlineBlue"
-        | "outlinewhite";
+    variant?: "soildBlue" | "soildBlack" | "soildWhiteBlue" | "soildWhiteBlack" | "outlineBlue" | "outlinewhite";
     isDisabled?: boolean;
     isLoadiong?: boolean;
     isStatus?: boolean;
@@ -37,7 +30,7 @@ export const Button = ({
 
     return (
         <StyledButton
-            theme={theme}
+            // theme={theme}
             type={type}
             size={size}
             variantsStyle={variantsStyle}
@@ -47,9 +40,7 @@ export const Button = ({
             isStatus={isStatus}
             {...props}
         >
-            {isIcon && !isLoadiong ? (
-                <AiFillHome className="button--icon" />
-            ) : null}
+            {isIcon && !isLoadiong ? <AiFillHome className="button--icon" /> : null}
 
             {isLoadiong ? <Loader aria-label={"로딩아이콘"} /> : label}
         </StyledButton>

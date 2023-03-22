@@ -2,7 +2,7 @@ import * as React from "react";
 import Image from "next/image";
 import { StyledHeader } from "./styled";
 
-export default function Header() {
+export default function AskHeader() {
     return (
         <StyledHeader className="header">
             <Image
