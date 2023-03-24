@@ -7,10 +7,8 @@ import AskHeaderLayout from "@/components/layout/AskHeaderLayout";
 export default function Ask() {
     return (
         <>
-            {/* <Container fixed maxWidth="lg"> */}
             <Question />
             <AnswerList />
-            {/* </Container> */}
         </>
     );
 }

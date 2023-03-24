@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button } from "@/components/atomes/Button/Button";
+import { Button } from "@/components/atomes/Button/Container/Button";
 import { expect } from "@storybook/jest";
 import { userEvent, within } from "@storybook/testing-library";
 

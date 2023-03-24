@@ -1,4 +1,4 @@
-import { Button } from "@/components/atomes/Button/Button";
+import { Button } from "@/components/atomes/Button/Container/Button";
 
 import Link from "next/link";
 

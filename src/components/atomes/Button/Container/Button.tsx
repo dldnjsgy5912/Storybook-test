@@ -1,6 +1,6 @@
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
-import { Loader, StyledButton, Variants } from "./ButtonStyle";
+import { Loader, StyledButton } from "./ButtonStyle";
 import { AriaAttributes, AriaRole } from "react";
 
 interface ButtonProps {
@@ -26,14 +26,10 @@ export const Button = ({
     isIcon = false,
     ...props
 }: ButtonProps) => {
-    const variantsStyle = Variants[variant];
-
     return (
         <StyledButton
-            // theme={theme}
             type={type}
             size={size}
-            variantsStyle={variantsStyle}
             variant={variant}
             disabled={isDisabled}
             isLoadiong={isLoadiong}

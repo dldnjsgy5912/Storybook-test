@@ -1,6 +1,53 @@
 import { css } from "styled-components";
 
-const Sizes = {
+const Font = {
+    heading: {
+        depth1: css`
+            font-size: 32px;
+            line-height: 48px;
+        `,
+        depth2: css`
+            font-size: 28px;
+            line-height: 42px;
+        `,
+    },
+    title: css`
+        font-size: 24px;
+        line-height: 36px;
+    `,
+    subTitle: {
+        depth1: css`
+            font-size: 20px;
+            line-height: 30px;
+        `,
+        depth2: css`
+            font-size: 18px;
+            line-height: 26px;
+        `,
+    },
+    body: {
+        depth1: css`
+            font-size: 16px;
+            line-height: 24px;
+        `,
+        depth2: css`
+            font-size: 14px;
+            line-height: 22px;
+        `,
+    },
+    caption: {
+        depth1: css`
+            font-size: 12px;
+            line-height: 18px;
+        `,
+        depth2: css`
+            font-size: 10px;
+            line-height: 16px;
+        `,
+    },
+};
+
+const ButtonSizes = {
     tiny: css`
         font-size: 12px;
         padding: 0px 8px;
@@ -30,91 +77,6 @@ const Sizes = {
         font-size: 18px;
         padding: 0px 16px;
         height: 60px;
-    `,
-};
-
-const Variants = {
-    soildBlue: css`
-        color: #ffffff;
-        background-color: #0740e4;
-        &:active {
-            color: #ffffff;
-            background-color: #2c5bea;
-        }
-        &:disabled {
-            pointer-events: none;
-            color: #ffffff;
-            background-color: #ededed;
-        }
-    `,
-    soildBlack: css`
-        color: #ffffff;
-        background-color: #101010;
-        &:active {
-            color: #ffffff;
-            background-color: #555555;
-        }
-        &:disabled {
-            pointer-events: none;
-            color: #ffffff;
-            background-color: #ededed;
-        }
-    `,
-    soildWhiteBlue: css`
-        color: #0740e4;
-        background-color: #ffffff;
-        &:active {
-            color: #4f75ef;
-            background-color: #ededed;
-        }
-        &:disabled {
-            pointer-events: none;
-            color: #0740e4;
-            background-color: #ededed;
-        }
-    `,
-    soildWhiteBlack: css`
-        color: #101010;
-        background-color: #ffffff;
-        &:active {
-            color: #555555;
-            background-color: #ededed;
-        }
-        &:disabled {
-            pointer-events: none;
-            color: #101010;
-            background-color: #ededed;
-        }
-    `,
-    outlineBlue: css`
-        color: #0740e4;
-        background-color: #fafbff;
-        border: #e5ebfc 1px solid;
-        &:active {
-            color: #a7a7a7;
-            background-color: #ffffff;
-            border: #f8f8f8 1px solid;
-        }
-        &:disabled {
-            pointer-events: none;
-            color: #ffffff;
-            background-color: #ededed;
-        }
-    `,
-    outlinewhite: css`
-        color: #707070;
-        background-color: #ffffff;
-        border: #ededed 1px solid;
-        &:active {
-            color: #7590f4;
-            background-color: #fafbff;
-            border: #f5f8ff 1px solid;
-        }
-        &:disabled {
-            pointer-events: none;
-            color: #ffffff;
-            background-color: #ededed;
-        }
     `,
 };
 
@@ -248,52 +210,92 @@ const Color = {
         `,
     },
 };
-const Font = {
-    heading: {
-        depth1: css`
-            font-size: 32px;
-            line-height: 48px;
-        `,
-        depth2: css`
-            font-size: 28px;
-            line-height: 42px;
-        `,
-    },
-    title: css`
-        font-size: 24px;
-        line-height: 36px;
+
+const ButtonVariants = {
+    soildBlue: css`
+        color: #ffffff;
+        background-color: #0740e4;
+        &:active {
+            color: #ffffff;
+            background-color: #2c5bea;
+        }
+        &:disabled {
+            pointer-events: none;
+            color: #ffffff;
+            background-color: #ededed;
+        }
     `,
-    subTitle: {
-        depth1: css`
-            font-size: 20px;
-            line-height: 30px;
-        `,
-        depth2: css`
-            font-size: 18px;
-            line-height: 26px;
-        `,
-    },
-    body: {
-        depth1: css`
-            font-size: 16px;
-            line-height: 24px;
-        `,
-        depth2: css`
-            font-size: 14px;
-            line-height: 22px;
-        `,
-    },
-    caption: {
-        depth1: css`
-            font-size: 12px;
-            line-height: 18px;
-        `,
-        depth2: css`
-            font-size: 10px;
-            line-height: 16px;
-        `,
-    },
+    soildBlack: css`
+        color: #ffffff;
+        background-color: #101010;
+        &:active {
+            color: #ffffff;
+            background-color: #555555;
+        }
+        &:disabled {
+            pointer-events: none;
+            color: #ffffff;
+            background-color: #ededed;
+        }
+    `,
+    soildWhiteBlue: css`
+        color: #0740e4;
+        background-color: #ffffff;
+        &:active {
+            color: #4f75ef;
+            background-color: #ededed;
+        }
+        &:disabled {
+            pointer-events: none;
+            color: #0740e4;
+            background-color: #ededed;
+        }
+    `,
+    soildWhiteBlack: css`
+        color: #101010;
+        background-color: #ffffff;
+        &:active {
+            color: #555555;
+            background-color: #ededed;
+        }
+        &:disabled {
+            pointer-events: none;
+            color: #101010;
+            background-color: #ededed;
+        }
+    `,
+    outlineBlue: css`
+        color: #0740e4;
+        background-color: #fafbff;
+        border: #e5ebfc 1px solid;
+        &:active {
+            color: #a7a7a7;
+            background-color: #ffffff;
+            border: #f8f8f8 1px solid;
+        }
+        &:disabled {
+            pointer-events: none;
+            color: #ffffff;
+            background-color: #ededed;
+        }
+    `,
+    outlinewhite: css`
+        color: #707070;
+        background-color: #ffffff;
+        border: #ededed 1px solid;
+        &:active {
+            color: #7590f4;
+            background-color: #fafbff;
+            border: #f5f8ff 1px solid;
+        }
+        &:disabled {
+            pointer-events: none;
+            color: #ffffff;
+            background-color: #ededed;
+        }
+    `,
 };
-const theme = { Sizes, Variants, Color, Font };
+
+const theme = { ButtonSizes, ButtonVariants, Color, Font };
 
 export default theme;

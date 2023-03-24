@@ -15,7 +15,7 @@ export type NextPageWithLayout = NextPage & {
 };
 /*
       NextPageWithLayout으로 Page의 타입을 지정하면,
-      getLayout 속성함수를 사용할 수 있게된다. (사용해도 되고 안해도 되고 )
+      getLayout 속성함수를 사용할 수 있게된다. 
     */
 type AppPropsWithLayout = AppProps & {
     Component: NextPageWithLayout;
