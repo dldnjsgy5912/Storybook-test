@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { StyledAnswerHead, StyledAnswerList } from "./styled";
 import { Box, Drawer } from "@mui/material";
-import Report from "@/components/atomes/ask/Report/index";
+import Report from "@/components/atomes/article/Report/index";
 import { TextButton } from "@/components/atomes/Button/Text/TextButton";
 import { Input } from "../../Input/Input";
 import { Button } from "@/components/atomes/Button/Container/Button";

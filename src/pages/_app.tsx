@@ -13,13 +13,10 @@ import { ReactElement, ReactNode } from "react";
 export type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
 };
-/*
-      NextPageWithLayout으로 Page의 타입을 지정하면,
-      getLayout 속성함수를 사용할 수 있게된다. 
-    */
+
 type AppPropsWithLayout = AppProps & {
     Component: NextPageWithLayout;
-}; // 기존 AppProps타입에 Layout을 추가한 것.
+};
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
     const getLayout =
