@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { AiFillHome } from "react-icons/ai";
-import { Button } from "../atomes/Button/Button";
+import { Button } from "@/components/atomes/Button/Container/Button";
 import { Input } from "../atomes/Input/Input";
 interface FormContextProps {
     children?: React.ReactNode;
