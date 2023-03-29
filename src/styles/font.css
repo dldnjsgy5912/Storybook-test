@@ -3,7 +3,8 @@
     font-weight: 300;
     font-style: normal;
     src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.eot");
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.eot?#iefix")
+    src: local("Pretendard-Light")
+            url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.eot?#iefix")
             format("embedded-opentype"),
         url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.woff2") format("woff2");
 
@@ -14,7 +15,8 @@
     font-weight: 400;
     font-style: normal;
     src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot");
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot?#iefix")
+    src: local("Pretendard-Regular")
+            url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot?#iefix")
             format("embedded-opentype"),
         url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff2") format("woff2");
     font-display: swap;
@@ -24,7 +26,8 @@
     font-weight: 500;
     font-style: normal;
     src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.eot");
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.eot?#iefix")
+    src: local("Pretendard-Medium")
+            url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.eot?#iefix")
             format("embedded-opentype"),
         url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.woff2") format("woff2");
 
@@ -35,7 +38,8 @@
     font-weight: 600;
     font-style: normal;
     src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot");
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot?#iefix")
+    src: local("Pretendard-SemiBold")
+            url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot?#iefix")
             format("embedded-opentype"),
         url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff2") format("woff2");
     font-display: swap;

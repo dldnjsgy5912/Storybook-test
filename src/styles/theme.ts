@@ -1,301 +1,363 @@
-import { css } from "styled-components";
+import { css, CSSProp } from "styled-components";
 
+// Font
 const Font = {
     heading: {
         depth1: css`
-            font-size: 32px;
-            line-height: 48px;
+            font-size: 3.2rem;
+            line-height: 4.8rem;
         `,
         depth2: css`
-            font-size: 28px;
-            line-height: 42px;
+            font-size: 2.8rem;
+            line-height: 4.2rem;
         `,
     },
     title: css`
-        font-size: 24px;
-        line-height: 36px;
+        font-size: 2.4rem;
+        line-height: 3.6rem;
     `,
     subTitle: {
         depth1: css`
-            font-size: 20px;
-            line-height: 30px;
+            font-size: 2rem;
+            line-height: 3rem;
         `,
         depth2: css`
-            font-size: 18px;
-            line-height: 26px;
+            font-size: 1.8rem;
+            line-height: 2.6rem;
         `,
     },
     body: {
         depth1: css`
-            font-size: 16px;
-            line-height: 24px;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
         `,
         depth2: css`
-            font-size: 14px;
-            line-height: 22px;
+            font-size: 1.4rem;
+            line-height: 2.2rem;
         `,
     },
     caption: {
         depth1: css`
-            font-size: 12px;
-            line-height: 18px;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
         `,
         depth2: css`
-            font-size: 10px;
-            line-height: 16px;
+            font-size: 1rem;
+            line-height: 1.6rem;
         `,
     },
 };
 
-const ButtonSizes = {
-    tiny: css`
-        font-size: 12px;
-        padding: 0px 8px;
-        height: 32px;
-    `,
-    xsmall: css`
-        font-size: 14px;
-        padding: 0px 8px;
-        height: 38px;
-    `,
-    small: css`
-        font-size: 14px;
-        padding: 0px 16px;
-        height: 46px;
-    `,
-    medium: css`
-        font-size: 16px;
-        padding: 0px 16px;
-        height: 52px;
-    `,
-    large: css`
-        font-size: 16px;
-        padding: 0px 16px;
-        height: 56px;
-    `,
-    xlarge: css`
-        font-size: 18px;
-        padding: 0px 16px;
-        height: 60px;
-    `,
-};
-
+// Color
 const Color = {
+    white: "#ffffff",
+    black: "#000000",
     primaryColor: {
-        primary100: css`
-            color: #0740e4;
-        `,
-        primary90: css`
-            color: #2c5bea;
-        `,
-        primary80: css`
-            color: #4f75ef;
-        `,
-        primary70: css`
-            color: #7590f4;
-        `,
-        primary60: css`
-            color: #9ab0f6;
-        `,
-        primary50: css`
-            color: #b4c3f8;
-        `,
-        primary40: css`
-            color: #cdd7fa;
-        `,
-        primary30: css`
-            color: #e5ebfc;
-        `,
-        primary20: css`
-            color: #f5f8ff;
-        `,
-        primary10: css`
-            color: #fafbff;
-        `,
+        primary100: "#0740e4",
+        primary90: "#2c5bea",
+        primary80: "#4f75ef",
+        primary70: "#7590f4",
+        primary60: "#9ab0f6",
+        primary50: "#b4c3f8",
+        primary40: "#cdd7fa",
+        primary30: "#e5ebfc",
+        primary20: "#f5f8ff",
+        primary10: "#fafbff",
     },
     secondaryColor: {
-        secondary100: css`
-            color: #ff673e;
-        `,
-        secondary90: css`
-            color: #ff7b57;
-        `,
-        secondary80: css`
-            color: #ff9173;
-        `,
-        secondary70: css`
-            color: #ffa188;
-        `,
-        secondary60: css`
-            color: #ffa993;
-        `,
-        secondary50: css`
-            color: #ffbcaa;
-        `,
-        secondary40: css`
-            color: #ffcdc1;
-        `,
-        secondary30: css`
-            color: #ffe3dd;
-        `,
-        secondary20: css`
-            color: #fff3f0;
-        `,
-        secondary10: css`
-            color: #fefbfb;
-        `,
+        secondary100: "#ff673e",
+        secondary90: "#ff7b57",
+        secondary80: "#ff9173",
+        secondary70: "#ffa188",
+        secondary60: "#ffa993",
+        secondary50: "#ffbcaa",
+        secondary40: "#ffcdc1",
+        secondary30: "#ffe3dd",
+        secondary20: "#fff3f0",
+        secondary10: "#fefbfb",
     },
     greenColor: {
-        green100: css`
-            color: #83b100;
-        `,
-        green90: css`
-            color: #9ec236;
-        `,
-        green80: css`
-            color: #aaca4e;
-        `,
-        green70: css`
-            color: #b8d36c;
-        `,
-        green60: css`
-            color: #c3da82;
-        `,
-        green50: css`
-            color: #cee099;
-        `,
-        green40: css`
-            color: #d9e8b1;
-        `,
-        green30: css`
-            color: #e4efc8;
-        `,
-        green20: css`
-            color: #f4f9e9;
-        `,
-        green10: css`
-            color: #fbfdf7;
-        `,
+        green100: "#83b100",
+        green90: "#9ec236",
+        green80: "#aaca4e",
+        green70: "#b8d36c",
+        green60: "#c3da82",
+        green50: "#cee099",
+        green40: "#d9e8b1",
+        green30: "#e4efc8",
+        green20: "#f4f9e9",
+        green10: "#fbfdf7",
     },
     grayColor: {
-        gray100: css`
-            color: #101010;
+        gray100: "#101010",
+        gray90: "#3c3c3c",
+        gray80: "#555555",
+        gray70: "#707070",
+        gray60: "#939393",
+        gray50: "#a7a7a7",
+        gray40: "#c2c2c2",
+        gray30: "#d9d9d9",
+        gray20: "#ededed",
+        gray10: "#f8f8f8",
+    },
+};
+const OpacityColor = {
+    whiteOpacity: {
+        op100: css`
+            color: ${Color.white};
+            opacity: 1;
         `,
-        gray90: css`
-            color: #3c3c3c;
+        op90: css`
+            color: ${Color.white};
+            opacity: 0.9;
         `,
-        gray80: css`
-            color: #555555;
+        op80: css`
+            color: ${Color.white};
+            opacity: 0.8;
         `,
-        gray70: css`
-            color: #707070;
+        op70: css`
+            color: ${Color.white};
+            opacity: 0.7;
         `,
-        gray60: css`
-            color: #939393;
+        op60: css`
+            color: ${Color.white};
+            opacity: 0.6;
         `,
-        gray50: css`
-            color: #a7a7a7;
+        op50: css`
+            color: ${Color.white};
+            opacity: 0.5;
         `,
-        gray40: css`
-            color: #c2c2c2;
+        op40: css`
+            color: ${Color.white};
+            opacity: 0.4;
         `,
-        gray30: css`
-            color: #d9d9d9;
+        op30: css`
+            color: ${Color.white};
+            opacity: 0.3;
         `,
-        gray20: css`
-            color: #ededed;
+        op20: css`
+            color: ${Color.white};
+            opacity: 0.2;
         `,
-        gray10: css`
-            color: #f8f8f8;
+        op10: css`
+            color: ${Color.white};
+            opacity: 0.1;
         `,
     },
+    blackOpacity: {
+        op100: css`
+            color: ${Color.black};
+            opacity: 1;
+        `,
+        op90: css`
+            color: ${Color.black};
+            opacity: 0.9;
+        `,
+        op80: css`
+            color: ${Color.black};
+            opacity: 0.8;
+        `,
+        op70: css`
+            color: ${Color.black};
+            opacity: 0.7;
+        `,
+        op60: css`
+            color: ${Color.black};
+            opacity: 0.6;
+        `,
+        op50: css`
+            color: ${Color.black};
+            opacity: 0.5;
+        `,
+        op40: css`
+            color: ${Color.black};
+            opacity: 0.4;
+        `,
+        op30: css`
+            color: ${Color.black};
+            opacity: 0.3;
+        `,
+        op20: css`
+            color: ${Color.black};
+            opacity: 0.2;
+        `,
+        op10: css`
+            color: ${Color.black};
+            opacity: 0.1;
+        `,
+    },
+};
+const ButtonSizes = {
+    tiny: css`
+        font-size: 1.2rem;
+        padding: 0rem 0.8rem;
+        height: 3.2rem;
+    `,
+    xsmall: css`
+        font-size: 1.4rem;
+        padding: 0rem 0.8rem;
+        height: 3.8rem;
+    `,
+    small: css`
+        font-size: 1.4rem;
+        padding: 0rem 1.6rem;
+        height: 4.6rem;
+    `,
+    medium: css`
+        font-size: 1.6rem;
+        padding: 0rem 1.6rem;
+        height: 5.2rem;
+    `,
+    large: css`
+        font-size: 1.6rem;
+        padding: 0rem 1.6rem;
+        height: 5.6rem;
+    `,
+    xlarge: css`
+        font-size: 1.8rem;
+        padding: 0rem 1.6rem;
+        height: 6rem;
+    `,
 };
 
 const ButtonVariants = {
     soildBlue: css`
         color: #ffffff;
-        background-color: #0740e4;
+        background-color: ${Color.primaryColor.primary100};
         &:active {
             color: #ffffff;
-            background-color: #2c5bea;
+            background-color: ${Color.primaryColor.primary90};
         }
         &:disabled {
             pointer-events: none;
             color: #ffffff;
-            background-color: #ededed;
+            background-color: ${Color.grayColor.gray20};
         }
     `,
     soildBlack: css`
         color: #ffffff;
-        background-color: #101010;
+        background-color: ${Color.grayColor.gray100};
         &:active {
             color: #ffffff;
-            background-color: #555555;
+            background-color: ${Color.grayColor.gray80};
         }
         &:disabled {
             pointer-events: none;
             color: #ffffff;
-            background-color: #ededed;
+            background-color: ${Color.grayColor.gray20};
         }
     `,
     soildWhiteBlue: css`
-        color: #0740e4;
+        color: ${Color.primaryColor.primary100};
         background-color: #ffffff;
         &:active {
-            color: #4f75ef;
-            background-color: #ededed;
+            color: ${Color.primaryColor.primary80};
+            background-color: ${Color.grayColor.gray20};
         }
         &:disabled {
             pointer-events: none;
-            color: #0740e4;
-            background-color: #ededed;
+            color: ${Color.primaryColor.primary100};
+            background-color: ${Color.grayColor.gray20};
         }
     `,
     soildWhiteBlack: css`
-        color: #101010;
+        color: ${Color.grayColor.gray100};
         background-color: #ffffff;
         &:active {
-            color: #555555;
-            background-color: #ededed;
+            color: ${Color.grayColor.gray80};
+            background-color: ${Color.grayColor.gray20};
         }
         &:disabled {
             pointer-events: none;
-            color: #101010;
-            background-color: #ededed;
+            color: ${Color.grayColor.gray100};
+            background-color: ${Color.grayColor.gray20};
         }
     `,
     outlineBlue: css`
-        color: #0740e4;
-        background-color: #fafbff;
-        border: #e5ebfc 1px solid;
+        color: ${Color.primaryColor.primary100};
+        background-color: ${Color.primaryColor.primary10};
+        border: ${Color.primaryColor.primary30} 1px solid;
         &:active {
-            color: #a7a7a7;
+            color: ${Color.grayColor.gray50};
             background-color: #ffffff;
-            border: #f8f8f8 1px solid;
+            border: ${Color.grayColor.gray10} 1px solid;
         }
         &:disabled {
             pointer-events: none;
             color: #ffffff;
-            background-color: #ededed;
+            background-color: ${Color.grayColor.gray20};
         }
     `,
     outlinewhite: css`
-        color: #707070;
+        color: ${Color.grayColor.gray70};
         background-color: #ffffff;
-        border: #ededed 1px solid;
+        border: ${Color.grayColor.gray20} 1px solid;
         &:active {
-            color: #7590f4;
-            background-color: #fafbff;
-            border: #f5f8ff 1px solid;
+            color: ${Color.primaryColor.primary70};
+            background-color: ${Color.primaryColor.primary10};
+            border: ${Color.primaryColor.primary20} 1px solid;
         }
         &:disabled {
             pointer-events: none;
             color: #ffffff;
-            background-color: #ededed;
+            background-color: ${Color.grayColor.gray20};
         }
     `,
 };
 
-const theme = { ButtonSizes, ButtonVariants, Color, Font };
+// 반응형
+const sizes: { [key: string]: number } = {
+    mobile: 320,
+    tablet: 768,
+    desktop: 1200,
+};
+
+type BackQuoteArgs = string[];
+
+interface Media {
+    mobile: (...args: BackQuoteArgs) => CSSProp | undefined;
+    tablet: (...args: BackQuoteArgs) => CSSProp | undefined;
+    desktop: (...args: BackQuoteArgs) => CSSProp | undefined;
+}
+
+const media: Media = {
+    mobile: (...args: BackQuoteArgs) => undefined,
+    tablet: (...args: BackQuoteArgs) => undefined,
+    desktop: (...args: BackQuoteArgs) => undefined,
+};
+
+Object.keys(sizes).reduce((acc: Media, label: string) => {
+    switch (label) {
+        case "desktop":
+            acc.desktop = (...args: BackQuoteArgs) =>
+                css`
+                    @media only screen and (min-width: ${sizes.desktop}px) {
+                        ${args}
+                    }
+                `;
+            break;
+        case "tablet":
+            acc.tablet = (...args: BackQuoteArgs) =>
+                css`
+                    @media only screen and (max-width: ${sizes.desktop}px) and (min-width: ${sizes.tablet}px) {
+                        ${args}
+                    }
+                `;
+            break;
+        case "mobile":
+            acc.mobile = (...args: BackQuoteArgs) =>
+                css`
+                    @media only screen and (max-width: ${sizes.tablet}px) {
+                        ${args}
+                    }
+                `;
+            break;
+        default:
+            break;
+    }
+    return acc;
+}, media);
+
+const theme = { Font, Color, OpacityColor, ButtonSizes, ButtonVariants, media };
 
 export default theme;

@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import Header from "../organisms/Header/Header";
+import Header from "../organisms/Header/Default/Header";
 import { Container } from "./styled";
 
 export default function AppLayout(props: { children: React.ReactNode }) {
@@ -8,6 +7,7 @@ export default function AppLayout(props: { children: React.ReactNode }) {
             <Container>
                 <Header />
                 {props.children}
+                {/* <Footer /> */}
             </Container>
         </>
     );

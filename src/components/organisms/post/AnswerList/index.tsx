@@ -8,14 +8,15 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { StyledAnswerHead, StyledAnswerList } from "./styled";
 import { Box, Drawer } from "@mui/material";
-import Report from "@/components/atomes/article/Report/index";
+import Report from "@/components/organisms/post/Report/index";
 import { TextButton } from "@/components/atomes/Button/Text/TextButton";
-import { Input } from "../../Input/Input";
+import { Input } from "../../../atomes/Input/Input";
 import { Button } from "@/components/atomes/Button/Container/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { add, remove } from "@/store/answerReducer";
 import { useState } from "react";
+import { Textarea } from "@/components/atomes/Textarea/Textarea";
 
 type Anchor = "bottom";
 
@@ -31,7 +32,7 @@ export default function AnswerList() {
         context: "",
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: any) => {
         setValues({
             ...values,
             [e.target.name]: e.target.value,
@@ -143,7 +144,7 @@ export default function AnswerList() {
                                     onChange={handleChange}
                                     isRequired
                                 />
-                                <Input
+                                <Textarea
                                     label="내용"
                                     name="context"
                                     value={values.context}

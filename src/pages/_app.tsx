@@ -1,5 +1,4 @@
 import theme from "@/styles/theme";
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
@@ -10,6 +9,7 @@ import { GlobalStyle } from "@/styles/globals-style";
 import AppLayout from "@/components/layout/AppLayout";
 import { NextPage } from "next";
 import { ReactElement, ReactNode } from "react";
+import Footer from "@/components/organisms/Footer/Footer";
 export type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -19,6 +19,7 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
+    // Per-Page Layouts
     const getLayout =
         Component.getLayout ||
         function (page) {

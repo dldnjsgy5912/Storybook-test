@@ -1,40 +1,81 @@
 import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 export const GlobalStyle = createGlobalStyle`
+
+    /* https://meyerweb.com/eric/tools/css/reset/ */
+    ${reset} //초기 reset 
+    
+    /* customize */
     * {
-    	margin: 0;
-    	padding: 0;
-    	box-sizing: border-box;
-    }
-    article, aside, details, figcaption, figure,
-    footer, header, hgroup, menu, nav, section {
-    	display: block;
+		box-sizing:border-box;
+	}
+    html{
+        font-size:62.5%; 
     }
     body {
-    	line-height: 1;
+        font-size: 1.6rem;
+        white-space: pre-wrap;
+        font-family: Pretendard, sans-serif;
     }
-    ol, ul {
-    	list-style: none;
+
+    a {
+    color: inherit;
+    text-decoration: none;
     }
-    blockquote, q {
-    	quotes: none;
+    
+    
+    ol, ul, li {
+    list-style: none;
     }
-    blockquote:before, blockquote:after,
-    q:before, q:after {
-    	content: '';
-    	content: none;
+    /* ----- form ---- */
+    label {
+        display: inline-block;
+        font-family: Pretendard, sans-serif;
     }
-    table {
-    	border-collapse: collapse;
-    	border-spacing: 0;
+    button,
+    input,
+    textarea {
+        -webkit-appearance: none;
+        display: inline-block;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        outline: none;
+        font-size: 15px;
+        font-family: Pretendard, sans-serif;
     }
-    button {
-        margin-bottom:4px;
-        padding: 3px 5px;
-        cursor: pointer;
-        &:disabled {
-            cursor: default;
-            fill: #f2f3f4;
-        }
+    input[type="radio"],
+    input[type="checkbox"] {
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
     }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* ----- mobile ----- */
+    html {
+        -ms-text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        text-size-adjust: none;
+    }
+
+    body,
+    textarea:focus,
+    input:focus,
+    a:focus {
+        -webkit-tap-highlight-color: rgba(135, 135, 135, 0.08);
+    }
+
+    body {
+        -webkit-touch-callout: none;
+    }
+    
 `;

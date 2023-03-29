@@ -1,6 +1,6 @@
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
-import { Loader, StyledButton } from "./ButtonStyle";
+import { Loader, StyledButton } from "./styled";
 import { AriaAttributes, AriaRole } from "react";
 
 interface ButtonProps {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledReport = styled.div`
-    margin: 20px 0;
+    margin: 2rem 0;
     h1 {
         ${({ theme }) => theme.Font["subTitle"]["depth1"]}
         text-align: center;
@@ -10,6 +10,6 @@ export const StyledReport = styled.div`
     button {
     }
     input {
-        margin-bottom: 20px;
+        margin-bottom: 2rem;
     }
 `;
