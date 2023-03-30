@@ -1,13 +1,15 @@
-import React from 'react';
-import { AiFillHome } from 'react-icons/ai';
-import { Loader, StyledButton } from './styled';
-import { AriaAttributes, AriaRole } from 'react';
+import React from "react";
+import { AiFillHome } from "react-icons/ai";
+import { Loader, StyledButton } from "./styled";
 
-interface ButtonProps {
-    type?: 'button' | 'submit' | 'reset';
-    size?: 'tiny' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+interface ButtonStringProps {
+    type?: "button" | "submit" | "reset";
+    size?: "tiny" | "xsmall" | "small" | "medium" | "large" | "xlarge";
+    variant?: "soildBlue" | "soildBlack" | "soildWhiteBlue" | "soildWhiteBlack" | "outlineBlue" | "outlinewhite";
+}
+
+interface ButtonProps extends ButtonStringProps {
     label?: string;
-    variant?: 'soildBlue' | 'soildBlack' | 'soildWhiteBlue' | 'soildWhiteBlack' | 'outlineBlue' | 'outlinewhite';
     isDisabled?: boolean;
     isLoadiong?: boolean;
     isStatus?: boolean;
@@ -16,10 +18,10 @@ interface ButtonProps {
 }
 
 export const Button = ({
-    type = 'button',
-    label = '버튼',
-    size = 'medium',
-    variant = 'soildBlue',
+    type = "button",
+    label = "버튼",
+    size = "medium",
+    variant = "soildBlue",
     isDisabled = false,
     isLoadiong = false,
     isStatus = false,
@@ -38,7 +40,7 @@ export const Button = ({
         >
             {isIcon && !isLoadiong ? <AiFillHome className="button--icon" /> : null}
 
-            {isLoadiong ? <Loader aria-label={'로딩아이콘'} /> : label}
+            {isLoadiong ? <Loader aria-label={"로딩아이콘"} /> : label}
         </StyledButton>
     );
 };

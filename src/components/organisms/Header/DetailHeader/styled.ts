@@ -26,9 +26,9 @@ export const StyledDetailHeader = styled.div`
         border-radius: 50%;
     }
     h1 {
-        ${({ theme }) => theme.Font["subTitle"]["depth2"]}
+        ${({ theme }) => theme.Font.subTitle.depth2}
     }
     span {
-        ${({ theme }) => theme.Font["body"]["depth2"]}
+        ${({ theme }) => theme.Font.body.depth2}
     }
 `;

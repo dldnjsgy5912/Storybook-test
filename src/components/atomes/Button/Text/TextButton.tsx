@@ -10,14 +10,15 @@ interface TextButtonStyleProps {
     colorStyle?: FlattenSimpleInterpolation;
     variant?: string;
 }
-
-interface TextButtonProps {
+interface TextButtonStringProps {
     color?: "primary" | "secondary" | "green" | "gray";
+    type?: "button" | "submit" | "reset";
+    size?: "tiny" | "xsmall" | "small" | "medium" | "large" | "xlarge";
+}
+interface TextButtonProps extends TextButtonStringProps {
     fontWeight?: number;
     underline?: boolean;
-    type?: "button" | "submit" | "reset";
     label?: string;
-    size?: "tiny" | "xsmall" | "small" | "medium" | "large" | "xlarge";
     isDisabled?: boolean;
     isIcon?: boolean;
     onClick?: any;

@@ -18,12 +18,9 @@ const Header = () => {
                 <Link href="/">
                     <TextButton label="전체" />
                 </Link>
-                <Link href="/post/1">
-                    <TextButton label="상세페이지" />
-                </Link>
-                {/* <Link href="/user/login">
+                <Link href="/user/login">
                     <TextButton label="로그인페이지" />
-                </Link> */}
+                </Link>
                 <Link href="/user/register">
                     <TextButton label="회원가입페이지" />
                 </Link>

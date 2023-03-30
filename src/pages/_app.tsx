@@ -10,6 +10,8 @@ import AppLayout from "@/components/layout/AppLayout";
 import { NextPage } from "next";
 import { ReactElement, ReactNode } from "react";
 import Footer from "@/components/organisms/Footer/Footer";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 export type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -25,14 +27,26 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         function (page) {
             return <AppLayout>{page}</AppLayout>;
         };
+
+    const client = new QueryClient({
+        defaultOptions: {
+            queries: {
+                refetchOnWindowFocus: false,
+            },
+        },
+    });
+
     return (
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-                <ThemeProvider theme={theme}>
-                    <GlobalStyle />
-                    {getLayout(<Component {...pageProps} />)}
-                </ThemeProvider>
-            </PersistGate>
-        </Provider>
+        <QueryClientProvider client={client}>
+            <ReactQueryDevtools />
+            <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+                    <ThemeProvider theme={theme}>
+                        <GlobalStyle />
+                        {getLayout(<Component {...pageProps} />)}
+                    </ThemeProvider>
+                </PersistGate>
+            </Provider>
+        </QueryClientProvider>
     );
 }

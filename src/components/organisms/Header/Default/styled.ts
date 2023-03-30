@@ -13,7 +13,7 @@ export const StyledHeader = styled.div`
 
     padding: 0 1rem;
 
-    border: 0.1rem solid;
+    border: 0.1rem solid ${({ theme }) => theme.Color.grayColor.gray50};
     z-index: 100;
     background-color: ${({ theme }) => theme.Color.white};
     img {
@@ -22,10 +22,10 @@ export const StyledHeader = styled.div`
         border-radius: 50%;
     }
     h1 {
-        ${({ theme }) => theme.Font["subTitle"]["depth2"]}
+        ${({ theme }) => theme.Font.subTitle.depth2}
     }
     span {
-        ${({ theme }) => theme.Font["body"]["depth2"]}
+        ${({ theme }) => theme.Font.body.depth2}
     }
 `;
 
